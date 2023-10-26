@@ -10,7 +10,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 	</div>
 	<MkSpacer :marginMin="20" :marginMax="32">
 		<form class="_gaps_m" autocomplete="new-password" @submit.prevent="onSubmit">
-			<MkInput v-if="instance.disableRegistration" v-model="invitationCode" type="text" :spellcheck="false" required>
+			<MkInput v-if="instance.disableRegistration" v-model="invitationCode" type="text" :spellcheck="false" required readonly>
 				<template #label>{{ i18n.ts.invitationCode }}</template>
 				<template #prefix><i class="ti ti-key"></i></template>
 			</MkInput>
@@ -90,8 +90,10 @@ import { i18n } from '@/i18n.js';
 
 const props = withDefaults(defineProps<{
 	autoSet?: boolean;
+	code?: string;
 }>(), {
 	autoSet: false,
+	code: '',
 });
 
 const emit = defineEmits<{
@@ -108,7 +110,7 @@ let turnstile = $ref<Captcha | undefined>();
 let username: string = $ref('');
 let password: string = $ref('');
 let retypedPassword: string = $ref('');
-let invitationCode: string = $ref('');
+let invitationCode: string = $ref(props.code);
 let email = $ref('');
 let usernameState: null | 'wait' | 'ok' | 'unavailable' | 'error' | 'invalid-format' | 'min-range' | 'max-range' = $ref(null);
 let emailState: null | 'wait' | 'ok' | 'unavailable:used' | 'unavailable:format' | 'unavailable:disposable' | 'unavailable:mx' | 'unavailable:smtp' | 'unavailable' | 'error' = $ref(null);

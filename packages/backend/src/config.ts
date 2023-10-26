@@ -91,6 +91,13 @@ type Source = {
 	perUserNotificationsMaxCount?: number;
 	deactivateAntennaThreshold?: number;
 	pidFile: string;
+
+	discord: {
+		id: string;
+		secret: string;
+		redirectUri: string;
+		oauthUri: string;
+	}
 };
 
 export type Config = {
@@ -167,6 +174,13 @@ export type Config = {
 	perUserNotificationsMaxCount: number;
 	deactivateAntennaThreshold: number;
 	pidFile: string;
+
+	discord: {
+		id: string;
+		secret: string;
+		redirectUri: string;
+		oauthUri: string;
+	}
 };
 
 const _filename = fileURLToPath(import.meta.url);
@@ -261,6 +275,7 @@ export function loadConfig(): Config {
 		perUserNotificationsMaxCount: config.perUserNotificationsMaxCount ?? 300,
 		deactivateAntennaThreshold: config.deactivateAntennaThreshold ?? (1000 * 60 * 60 * 24 * 7),
 		pidFile: config.pidFile,
+		discord: config.discord,
 	};
 }
 

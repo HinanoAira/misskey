@@ -25,7 +25,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 				<XServerRules @done="isAcceptedServerRule = true" @cancel="dialog.close()"/>
 			</template>
 			<template v-else>
-				<XSignup :autoSet="autoSet" @signup="onSignup" @signupEmailPending="onSignupEmailPending"/>
+				<XSignup :autoSet="autoSet" :code="code" @signup="onSignup" @signupEmailPending="onSignupEmailPending"/>
 			</template>
 		</Transition>
 	</div>
@@ -43,8 +43,10 @@ import { instance } from '@/instance.js';
 
 const props = withDefaults(defineProps<{
 	autoSet?: boolean;
+	code?: string;
 }>(), {
 	autoSet: false,
+	code: '',
 });
 
 const emit = defineEmits<{

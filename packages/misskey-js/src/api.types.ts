@@ -639,4 +639,8 @@ export type Endpoints = {
 			$default: UserDetailed;
 		};
 	}; };
+
+	'discord/token': { req: { code: string; }; res: { access_token: string; }; };
+	'discord/check': { req: { discordToken: string; }; res: { code: string; }; };
+	'discord/geturi': { req: NoParams; res: { uri: string; }; };
 };
