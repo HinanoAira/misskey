@@ -352,6 +352,9 @@ import * as ep___users_achievements from './endpoints/users/achievements.js';
 import * as ep___users_updateMemo from './endpoints/users/update-memo.js';
 import * as ep___fetchRss from './endpoints/fetch-rss.js';
 import * as ep___retention from './endpoints/retention.js';
+import * as ep___discord_token from './endpoints/discord/token.js';
+import * as ep___discord_check from './endpoints/discord/check.js';
+import * as ep___discord_geturi from './endpoints/discord/geturi.js';
 import { GetterService } from './GetterService.js';
 import { ApiLoggerService } from './ApiLoggerService.js';
 import type { Provider } from '@nestjs/common';
@@ -702,6 +705,9 @@ const $users_achievements: Provider = { provide: 'ep:users/achievements', useCla
 const $users_updateMemo: Provider = { provide: 'ep:users/update-memo', useClass: ep___users_updateMemo.default };
 const $fetchRss: Provider = { provide: 'ep:fetch-rss', useClass: ep___fetchRss.default };
 const $retention: Provider = { provide: 'ep:retention', useClass: ep___retention.default };
+const $discord_token: Provider = { provide: 'ep:discord/token', useClass: ep___discord_token.default };
+const $discord_check: Provider = { provide: 'ep:discord/check', useClass: ep___discord_check.default };
+const $discord_geturi: Provider = { provide: 'ep:discord/geturi', useClass: ep___discord_geturi.default };
 
 @Module({
 	imports: [
@@ -1056,6 +1062,9 @@ const $retention: Provider = { provide: 'ep:retention', useClass: ep___retention
 		$users_updateMemo,
 		$fetchRss,
 		$retention,
+		$discord_token,
+		$discord_check,
+		$discord_geturi,
 	],
 	exports: [
 		$admin_meta,
@@ -1401,6 +1410,9 @@ const $retention: Provider = { provide: 'ep:retention', useClass: ep___retention
 		$users_updateMemo,
 		$fetchRss,
 		$retention,
+		$discord_token,
+		$discord_check,
+		$discord_geturi,
 	],
 })
 export class EndpointsModule {}

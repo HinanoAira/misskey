@@ -2229,6 +2229,18 @@ export type Endpoints = {
             };
         };
     };
+    'discord/token': {
+        req: {
+					code: string,
+				};
+        access_token: string;
+    };
+    'discord/check': {
+        req: {
+					discordToken: string,
+				};
+        code: string;
+    };
 };
 
 declare namespace entities {

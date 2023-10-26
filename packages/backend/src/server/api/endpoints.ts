@@ -352,6 +352,9 @@ import * as ep___users_achievements from './endpoints/users/achievements.js';
 import * as ep___users_updateMemo from './endpoints/users/update-memo.js';
 import * as ep___fetchRss from './endpoints/fetch-rss.js';
 import * as ep___retention from './endpoints/retention.js';
+import * as ep___discord_token from './endpoints/discord/token.js';
+import * as ep___discord_check from './endpoints/discord/check.js';
+import * as ep___discord_geturi from './endpoints/discord/geturi.js';
 
 const eps = [
 	['admin/meta', ep___admin_meta],
@@ -700,6 +703,9 @@ const eps = [
 	['users/update-memo', ep___users_updateMemo],
 	['fetch-rss', ep___fetchRss],
 	['retention', ep___retention],
+	['discord/token', ep___discord_token],
+	['discord/check', ep___discord_check],
+	['discord/geturi', ep___discord_geturi],
 ];
 
 export interface IEndpointMeta {

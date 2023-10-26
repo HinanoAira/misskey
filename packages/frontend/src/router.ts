@@ -1,3 +1,4 @@
+import { query } from '@/scripts/url.js';
 /*
  * SPDX-FileCopyrightText: syuilo and other misskey contributors
  * SPDX-License-Identifier: AGPL-3.0-only
@@ -519,6 +520,11 @@ export const routes = [{
 	path: '/',
 	component: $i ? page(() => import('./pages/timeline.vue')) : page(() => import('./pages/welcome.vue')),
 	globalCacheKey: 'index',
+}, {
+	name: 'index',
+	path: '/registration',
+	component: page(() => import('./pages/registration.vue')),
+	props: route => ({ query: route.query.code }),
 }, {
 	path: '/:(*)',
 	component: page(() => import('./pages/not-found.vue')),

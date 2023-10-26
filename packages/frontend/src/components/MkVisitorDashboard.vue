@@ -86,9 +86,9 @@ function signin() {
 }
 
 function signup() {
-	os.popup(XSignupDialog, {
-		autoSet: true,
-	}, {}, 'closed');
+	try {
+		os.api('discord/geturi').then((value) => window.location.href = value.uri);
+	} catch { /* empty */ }
 }
 
 function showMenu(ev) {
